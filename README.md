@@ -26,32 +26,32 @@ from sklearn.metrics import accuracy_score,classification_report,confusion_matri
 warnings.filterwarnings('ignore')
 ```
 
-# Data Exploration
+## Data Exploration
 Loading the dataset
 ```
 member = pd.read_csv('unhcr_rbac_pm_2020_member_v2.1_anonymised.csv', index_col=False)
 ```
 
-# Select data
+## Select data
 ```
 member2 =  member.iloc[0:57759,0:63]
 ```
 
-# Age with pregnant
+## Age with pregnant
 ```
 age_preg =  member2.iloc[0:57759,[2,6,7,8,9,11]]
 age_preg.head()
 age_preg.info()
 ```
 
-# Sex with pregnant
+## Sex with pregnant
 ```
 sex_preg =  member2.iloc[0:57759,[1,8,9,11]]
 sex_preg.head()
 sex_preg.info()
 ```
 
-# Count number of values
+## Count number of values
 ```
 age_preg['vulnerabilities_pregnant'].value_counts()
 age_preg['vulnerabilities_pregnant'].value_counts(normalize=True)
@@ -61,17 +61,17 @@ age_preg['vulnerabilities_medical_threat'].value_counts()
 age_preg['vulnerabilities_disability'].value_counts()
 ```
 
-# Check age groups
+## Check age groups
 ```
 age_preg['age'].value_counts().plot(kind="bar", rot=0, color='green', figsize=(8,5), title="Age Groups")
 ```
 
-# Check sex groups
+## Check sex groups
 ```
 sex_preg.sex.value_counts().plot(kind='bar', rot=0, color='red', title="Count sex")
 ```
 
-#Check Amount of Age Groups
+## Check Amount of Age Groups
 ```
 cnt_srs = age_preg['age'].value_counts().head(25)
 plt.figure(figsize=(8,12))
@@ -82,7 +82,7 @@ plt.title("Age Groups", fontsize=15)
 plt.show()
 ```
 
-#Check Amount of Sex Groups
+## Check Amount of Sex Groups
 ```
 cnt_srs = sex_preg['sex'].value_counts().head(25)
 plt.figure(figsize=(6,3))
@@ -99,7 +99,7 @@ plt.show()
 #pd.get_dummies(age_preg, columns=["relationship"]).head()
 
 
-#Frequency distribution of values in variables_age
+## Frequency distribution of values in variables_age
 ```
 inputCols = ['vulnerabilities_pregnant','vulnerabilities_lactating',
              'vulnerabilities_medical','vulnerabilities_disability','age']
@@ -108,44 +108,44 @@ for col in inputCols:
     print(age_preg[col].value_counts())
 ```   
 
-#Explore age (target) variable
+## Explore age (target) variable
 ```
 age_preg['age'].value_counts()
 ```
 
-#Remove null from occu_preg
+## Remove null from occu_preg
 ```
 age_preg = occu_preg.dropna()
 ```
 
-#Check missing values
+## Check missing values
 ```
 age_preg.isnull().sum()
 ```
 
-#Declare datasets
+## Declare datasets
 ```
 X = age_preg.drop(['age'], axis=1)
 y = age_preg['age']
 ```
 
-#Split data into separate training and test set
+## Split data into separate training and test set
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 42)
 ```
 
-#Check the shape of X_train and X_test
+## Check the shape of X_train and X_test
 ```
 X_train.shape, X_test.shape
 ```
 
-#Check data types in X_train
+## Check data types in X_train
 ```
 X_train.dtypes
 X_train.head()
 ```
 
-#Encode variables with ordinal encoding
+## Encode variables with ordinal encoding
 ```
 encoder = ce.OrdinalEncoder(cols=['vulnerabilities_pregnant','vulnerabilities_lactating','vulnerabilities_medical_threat',
                                   'vulnerabilities_medical','vulnerabilities_disability'])
@@ -159,26 +159,26 @@ X_train.head()
 X_test.head()
 ```
 
-#DecisionTreeClassifier model with criterion gini index
+## DecisionTreeClassifier model with criterion gini index
 ```
 clf_gini = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=0)
 ```
-#Fit the model
+## Fit the model
 ```
 clf_gini.fit(X_train, y_train)
 ```
 
-#Predict the Test set results with criterion gini index
+## Predict the Test set results with criterion gini index
 ```
 y_pred_gini = clf_gini.predict(X_test)
 ```
 
-#Check accuracy score
+## Check accuracy score
 ```
 print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
 ```
 
-#Compare the train-set and test-set accuracy
+## Compare the train-set and test-set accuracy
 ```
 y_pred_train_gini = clf_gini.predict(X_train)
 y_pred_train_gini
@@ -187,18 +187,18 @@ y_pred_train_gini
 print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
 ```
 
-#Print the scores on training and test set
+## Print the scores on training and test set
 ```
 print('Training set score: {:.4f}'.format(clf_gini.score(X_train, y_train)))
 print('Test set score: {:.4f}'.format(clf_gini.score(X_test, y_test)))
 ```
 
-#Change series to array
+## Change series to array
 ```
 y_train = y_train.values
 ```
 
-#Visualize decision-trees
+## Visualize decision-trees
 ```
 plt.figure(figsize=(12,8))
 tree.plot_tree(clf_gini.fit(X_train, y_train)) 
@@ -222,7 +222,7 @@ graph
 ```
 -----------------------------------
 
-#Frequency distribution of values in variables_age
+## Frequency distribution of values in variables_age
 ```
 inputCols = ['vulnerabilities_disability','vulnerabilities_medical',
              'vulnerabilities_medical_threat','sex']
@@ -231,44 +231,44 @@ for col in inputCols:
     print(sex_preg[col].value_counts())
 ```
 
-#Explore sex (target) variable
+## Explore sex (target) variable
 ```
 sex_preg['sex'].value_counts()
 ```
 
-#Remove null from occu_preg
+## Remove null from occu_preg
 ```
 sex_preg = occu_preg.dropna()
 ```
 
-#Check missing values
+## Check missing values
 ```
 sex_preg.isnull().sum()
 ```
 
-#Declare datasets
+## Declare datasets
 ```
 X = sex_preg.drop(['sex'], axis=1)
 y = sex_preg['sex']
 ```
 
-#Split data into separate training and test set 
+## Split data into separate training and test set 
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 42)
 ```
 
-#Check the shape of X_train and X_test
+## Check the shape of X_train and X_test
 ```
 X_train.shape, X_test.shape
 ```
 
-#Check data types in X_train
+## Check data types in X_train
 ```
 X_train.dtypes
 X_train.head()
 ```
 
-#DecisionTreeClassifier model with criterion entropy
+## DecisionTreeClassifier model with criterion entropy
 ```
 clf_en = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
 ```
@@ -277,17 +277,17 @@ clf_en = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0
 clf_en.fit(X_train, y_train)
 ```
 
-#Predict the Test set results with criterion gini index
+## Predict the Test set results with criterion gini index
 ```
 y_pred_gini = clf_gini.predict(X_test)
 ```
 
-#Check accuracy score
+## Check accuracy score
 ```
 print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
 ```
 
-#Compare the train-set and test-set accuracy
+## Compare the train-set and test-set accuracy
 ```
 y_pred_train_gini = clf_gini.predict(X_train)
 y_pred_train_gini
@@ -297,18 +297,18 @@ y_pred_train_gini
 print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
 ```
 
-#Print the scores on training and test set
+## Print the scores on training and test set
 ```
 print('Training set score: {:.4f}'.format(clf_gini.score(X_train, y_train)))
 print('Test set score: {:.4f}'.format(clf_gini.score(X_test, y_test)))
 ```
 
-#Change series to array
+## Change series to array
 ```
 y_train = y_train.values
 ```
 
-#Visualize decision-trees
+## Visualize decision-trees
 ```
 plt.figure(figsize=(12,8))
 tree.plot_tree(clf_gini.fit(X_train, y_train)) 
