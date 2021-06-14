@@ -26,32 +26,32 @@ from sklearn.metrics import accuracy_score,classification_report,confusion_matri
 warnings.filterwarnings('ignore')
 ```
 
-#Data Exploration
+# Data Exploration
 Loading the dataset
 ```
 member = pd.read_csv('unhcr_rbac_pm_2020_member_v2.1_anonymised.csv', index_col=False)
 ```
 
-#Select data
+# Select data
 ```
 member2 =  member.iloc[0:57759,0:63]
 ```
 
-#Age with pregnant
+# Age with pregnant
 ```
 age_preg =  member2.iloc[0:57759,[2,6,7,8,9,11]]
 age_preg.head()
 age_preg.info()
 ```
 
-#Sex with pregnant
+# Sex with pregnant
 ```
 sex_preg =  member2.iloc[0:57759,[1,8,9,11]]
 sex_preg.head()
 sex_preg.info()
 ```
 
-#Count number of values
+# Count number of values
 ```
 age_preg['vulnerabilities_pregnant'].value_counts()
 age_preg['vulnerabilities_pregnant'].value_counts(normalize=True)
@@ -61,12 +61,12 @@ age_preg['vulnerabilities_medical_threat'].value_counts()
 age_preg['vulnerabilities_disability'].value_counts()
 ```
 
-#Check age groups
+# Check age groups
 ```
 age_preg['age'].value_counts().plot(kind="bar", rot=0, color='green', figsize=(8,5), title="Age Groups")
 ```
 
-#Check sex groups
+# Check sex groups
 ```
 sex_preg.sex.value_counts().plot(kind='bar', rot=0, color='red', title="Count sex")
 ```
