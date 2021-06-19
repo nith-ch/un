@@ -96,7 +96,7 @@ plt.ylabel('Age', fontsize=12)
 plt.title("Age Groups", fontsize=15)
 plt.show()
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/age_amount.PNG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_amount.png)
 
 ## Check Amount of Sex Groups
 ```
@@ -108,7 +108,8 @@ plt.ylabel('Sex', fontsize=12)
 plt.title("Sex Groups", fontsize=15)
 plt.show()
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_amount.PNG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_amount.png)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_group.PNG)
 
 -----------------------------------
 
