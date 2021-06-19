@@ -56,7 +56,7 @@ sex_preg.info()
 age_preg['vulnerabilities_pregnant'].value_counts()
 age_preg['vulnerabilities_pregnant'].value_counts(normalize=True)
 ```
-<img width=“964” src=“https://github.com/nith-ch/un/blob/master/pic/vul_preg.PNG”>
+![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_preg.PNG)
 ```
 age_preg['vulnerabilities_lactating'].value_counts()
 age_preg['vulnerabilities_medical'].value_counts()
