@@ -78,11 +78,13 @@ age_preg['vulnerabilities_disability'].value_counts()
 ```
 age_preg['age'].value_counts().plot(kind="bar", rot=0, color='green', figsize=(8,5), title="Age Groups")
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_group.PNG)
 
 ## Check sex groups
 ```
 sex_preg.sex.value_counts().plot(kind='bar', rot=0, color='red', title="Count sex")
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_group.PNG)
 
 ## Check Amount of Age Groups
 ```
@@ -94,6 +96,7 @@ plt.ylabel('Age', fontsize=12)
 plt.title("Age Groups", fontsize=15)
 plt.show()
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_amount.PNG)
 
 ## Check Amount of Sex Groups
 ```
@@ -105,6 +108,7 @@ plt.ylabel('Sex', fontsize=12)
 plt.title("Sex Groups", fontsize=15)
 plt.show()
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_amount.PNG)
 
 -----------------------------------
 
@@ -119,7 +123,8 @@ inputCols = ['vulnerabilities_pregnant','vulnerabilities_lactating',
 
 for col in inputCols:
     print(age_preg[col].value_counts())
-```   
+```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/frequency_dis.PNG)
 
 ## Explore age (target) variable
 ```
@@ -135,6 +140,7 @@ age_preg = occu_preg.dropna()
 ```
 age_preg.isnull().sum()
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sum_agenull.PNG)
 
 ## Declare datasets
 ```
@@ -151,6 +157,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, rand
 ```
 X_train.shape, X_test.shape
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/shape_age.PNG)
 
 ## Check data types in X_train
 ```
@@ -190,7 +197,7 @@ y_pred_gini = clf_gini.predict(X_test)
 ```
 print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
 ```
-
+![alt text](https://github.com/nith-ch/un/blob/master/pic/acc_gini.PNG)
 ## Compare the train-set and test-set accuracy
 ```
 y_pred_train_gini = clf_gini.predict(X_train)
@@ -199,6 +206,7 @@ y_pred_train_gini
 ```
 print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/training_acc_sco.PNG)
 
 ## Print the scores on training and test set
 ```
@@ -216,6 +224,7 @@ y_train = y_train.values
 plt.figure(figsize=(12,8))
 tree.plot_tree(clf_gini.fit(X_train, y_train)) 
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree.PNG)
 
 ```
 plt.figure(figsize=(12,8))
@@ -223,19 +232,12 @@ tree.plot_tree(clf_gini,
                feature_names = X_train.columns, 
                class_names=y_train,
                filled = True,rounded=True);
-
-
-dot_data = tree.export_graphviz(clf_gini, out_file=None, 
-                              feature_names=X_train.columns,  
-                              class_names=y_train,
-                              filled=True, rounded=True,  
-                              special_characters=True)
-graph = graphviz.Source(dot_data) 
-graph 
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree2.PNG)
+
 -----------------------------------
 
-## Frequency distribution of values in variables_age
+## Frequency distribution of values in variables_sex
 ```
 inputCols = ['vulnerabilities_disability','vulnerabilities_medical',
              'vulnerabilities_medical_threat','sex']
