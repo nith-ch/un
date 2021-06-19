@@ -109,7 +109,6 @@ plt.title("Sex Groups", fontsize=15)
 plt.show()
 ```
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_amount.png)
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_group.PNG)
 
 -----------------------------------
 
@@ -225,7 +224,7 @@ y_train = y_train.values
 plt.figure(figsize=(12,8))
 tree.plot_tree(clf_gini.fit(X_train, y_train)) 
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree.PNG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree.png)
 
 ```
 plt.figure(figsize=(12,8))
@@ -234,7 +233,7 @@ tree.plot_tree(clf_gini,
                class_names=y_train,
                filled = True,rounded=True);
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree2.PNG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/age_dec_tree2.png)
 
 -----------------------------------
 
