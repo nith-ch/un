@@ -59,10 +59,20 @@ age_preg['vulnerabilities_pregnant'].value_counts(normalize=True)
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_preg.PNG)
 ```
 age_preg['vulnerabilities_lactating'].value_counts()
+```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_lac.PNG)
+```
 age_preg['vulnerabilities_medical'].value_counts()
+```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_med.PNG)
+```
 age_preg['vulnerabilities_medical_threat'].value_counts()
+```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_med_thr.PNG)
+```
 age_preg['vulnerabilities_disability'].value_counts()
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/vul_dis.PNG)
 
 ## Check age groups
 ```
