@@ -111,7 +111,7 @@ plt.show()
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_amount.png)
 
 -----------------------------------
-
+#One-hot key relationship #pd.get_dummies(age_preg, columns=["relationship"]).head()
 ## Frequency distribution of values in variables_age
 ```
 inputCols = ['vulnerabilities_pregnant','vulnerabilities_lactating',
