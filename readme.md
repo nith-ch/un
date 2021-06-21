@@ -112,10 +112,6 @@ plt.show()
 
 -----------------------------------
 
-#One-hot key relationship
-#pd.get_dummies(age_preg, columns=["relationship"]).head()
-
-
 ## Frequency distribution of values in variables_age
 ```
 inputCols = ['vulnerabilities_pregnant','vulnerabilities_lactating',
@@ -152,11 +148,13 @@ y = age_preg['age']
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 42)
 ```
+We will split data to train and test set as follows: Train set 70% and Test set 30%
 
 ## Check the shape of X_train and X_test
 ```
 X_train.shape, X_test.shape
 ```
+See the shape of train and test set
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/shape_age.PNG)
 
 ## Check data types in X_train
@@ -197,6 +195,8 @@ y_pred_gini = clf_gini.predict(X_test)
 ```
 print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
 ```
+y_test are the true class labels and y_pred_gini are the predicted class labels in the test-set.
+With GINI index, thr model accuracy score is 0.6259 
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/acc_gini.PNG)
 ## Compare the train-set and test-set accuracy
 ```
@@ -271,11 +271,13 @@ y = sex_preg['sex']
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 42)
 ```
+We will split data to train and test set as follows: Train set 70% and Test set 30%
 
 ## Check the shape of X_train and X_test
 ```
 X_train.shape, X_test.shape
 ```
+See the shape of train and test set
 
 ## Check data types in X_train
 ```
