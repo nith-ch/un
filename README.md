@@ -155,6 +155,7 @@ We will split data to train and test set as follows: Train set 70% and Test set 
 X_train.shape, X_test.shape
 ```
 See the shape of train and test set
+
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/shape_age.PNG)
 
 ## Check data types in X_train
