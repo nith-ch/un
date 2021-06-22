@@ -198,7 +198,8 @@ y_pred_gini = clf_gini.predict(X_test)
 print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
 ```
 y_test are the true class labels and y_pred_gini are the predicted class labels in the test-set.
-With GINI index, thr model accuracy score is 0.6259 
+
+With GINI index, the model accuracy score is 0.6259 
 
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/acc_gini.PNG)
 
