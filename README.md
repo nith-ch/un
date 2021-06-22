@@ -257,10 +257,11 @@ for col in inputCols:
 ```
 sex_preg['sex'].value_counts()
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_count.jpg)
 
 ## Remove null from occu_preg
 ```
-sex_preg = occu_preg.dropna()
+sex_preg = sex_preg.dropna()
 ```
 
 ## Check missing values
@@ -286,6 +287,8 @@ X_train.shape, X_test.shape
 ```
 See the shape of train and test set
 
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_shape.jpg)
+
 ## Check data types in X_train
 ```
 X_train.dtypes
@@ -296,7 +299,7 @@ X_train.head()
 ```
 clf_en = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
 ```
-#Fit the model
+## Fit the model
 ```
 clf_en.fit(X_train, y_train)
 ```
