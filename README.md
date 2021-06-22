@@ -1,7 +1,8 @@
 # Introduction
 This dataset is donated by the UNHCR to deal with complex household survey data. The variables collected at household level 
 (including enumerator appreciation of vulnerability) and variables collected at personal levels.
-Yan download it at https://github.com/nith-ch/un/blob/master/unhcr_rbac_pm_2020_member_v2.xlsx
+
+You can download it at https://github.com/nith-ch/un/blob/master/unhcr_rbac_pm_2020_member_v2.xlsx
 
 ## Install
 ```
