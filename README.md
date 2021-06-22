@@ -200,6 +200,7 @@ y_test are the true class labels and y_pred_gini are the predicted class labels 
 With GINI index, thr model accuracy score is 0.6259 
 
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/acc_gini.PNG)
+
 ## Compare the train-set and test-set accuracy
 ```
 y_pred_train_gini = clf_gini.predict(X_train)
@@ -208,6 +209,8 @@ y_pred_train_gini
 ```
 print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
 ```
+We can see that the accuracy score is 0.6321
+
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/training_acc_sco.PNG)
 
 ## Print the scores on training and test set
