@@ -128,12 +128,12 @@ for col in inputCols:
 age_preg['age'].value_counts()
 ```
 
-## Remove null from occu_preg
+## Remove NULL from occu_preg
 ```
 age_preg = occu_preg.dropna()
 ```
 
-## Check missing values
+## Check NULL values
 ```
 age_preg.isnull().sum()
 ```
@@ -257,14 +257,14 @@ for col in inputCols:
 ```
 sex_preg['sex'].value_counts()
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_count.jpg)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_count.JPG)
 
-## Remove null from occu_preg
+## Remove NULL from occu_preg
 ```
 sex_preg = sex_preg.dropna()
 ```
 
-## Check missing values
+## Check NULL values
 ```
 sex_preg.isnull().sum()
 ```
@@ -287,7 +287,7 @@ X_train.shape, X_test.shape
 ```
 See the shape of train and test set
 
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_shape.jpg)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_shape.JPG)
 
 ## Check data types in X_train
 ```
