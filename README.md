@@ -220,6 +220,11 @@ We can see that the accuracy score is 0.6321
 print('Training set score: {:.4f}'.format(clf_gini.score(X_train, y_train)))
 print('Test set score: {:.4f}'.format(clf_gini.score(X_test, y_test)))
 ```
+The training-set accuracy score is 0.6321 while the test-set accuracy to be 0.6259. 
+These two values are quite comparable. There is no sign of overfitting.
+
+![alt text](https://github.com/nith-ch/un/blob/master/pic/train_test_gini.JPG)
+
 
 ## Change series to array
 ```
