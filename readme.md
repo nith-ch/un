@@ -87,6 +87,13 @@ sex_preg.sex.value_counts().plot(kind='bar', rot=0, color='red', title="Count se
 ```
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_group.PNG)
 
+## Check nationality groups
+```
+nat_preg.nationality.value_counts().plot(kind='bar', rot=0, color='blue', figsize=(10,5), title="Count sex")
+```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nationality_group.png)
+
+
 ## Check Amount of Age Groups
 ```
 cnt_srs = age_preg['age'].value_counts().head(25)
