@@ -369,5 +369,5 @@ tree.plot_tree(clf_en,
                feature_names = X_train.columns, 
                class_names=y_train,
                filled = True,rounded=True);
-			   ```
+```
 ![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_dec_tree2.png)
