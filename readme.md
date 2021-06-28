@@ -45,11 +45,11 @@ age_preg.head()
 age_preg.info()
 ```
 
-## Sex with pregnant
+## National with pregnant
 ```
-sex_preg =  member2.iloc[0:57759,[1,8,9,11]]
-sex_preg.head()
-sex_preg.info()
+nat_preg =  member2.iloc[0:57759,[3,6,7,8,9,11]]
+nat_preg.head()
+nat_preg.info()
 ```
 
 ## Count number of values
@@ -249,35 +249,35 @@ tree.plot_tree(clf_gini,
 
 -----------------------------------
 
-## Frequency distribution of values in variables_sex
+## Frequency distribution of values in variables_nationality
 ```
-inputCols = ['vulnerabilities_disability','vulnerabilities_medical',
-             'vulnerabilities_medical_threat','sex']
+inputCols = ['vulnerabilities_disability','vulnerabilities_medical','vulnerabilities_pregnant',	
+             'vulnerabilities_lactating','vulnerabilities_medical_threat','nationality']
 
 for col in inputCols:
-    print(sex_preg[col].value_counts())
+    print(nat_preg[col].value_counts())
 ```
 
-## Explore sex (target) variable
+## Explore nationality (target) variable
 ```
-sex_preg['sex'].value_counts()
+nat_preg['nationality'].value_counts()
 ```
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_count.JPG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_count.JPG)
 
 ## Remove NULL from occu_preg
 ```
-sex_preg = sex_preg.dropna()
+nat_preg = nat_preg.dropna()
 ```
 
 ## Check NULL values
 ```
-sex_preg.isnull().sum()
+nat_preg.isnull().sum()
 ```
 
 ## Declare datasets
 ```
-X = sex_preg.drop(['sex'], axis=1)
-y = sex_preg['sex']
+X = nat_preg.drop(['nationality'], axis=1)
+y = nat_preg['nationality']
 ```
 
 ## Split data into separate training and test set 
@@ -292,12 +292,26 @@ X_train.shape, X_test.shape
 ```
 See the shape of train and test set
 
-![alt text](https://github.com/nith-ch/un/blob/master/pic/sex_shape.JPG)
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_shape.JPG)
 
 ## Check data types in X_train
 ```
 X_train.dtypes
 X_train.head()
+```
+
+## Encode variables with ordinal encoding
+```
+encoder = ce.OrdinalEncoder(cols=['vulnerabilities_disability','vulnerabilities_medical','vulnerabilities_pregnant',	
+             'vulnerabilities_lactating','vulnerabilities_medical_threat'])
+
+X_train = encoder.fit_transform(X_train)
+X_test = encoder.transform(X_test)
+```
+
+```
+X_train.head()
+X_test.head()
 ```
 
 ## DecisionTreeClassifier model with criterion entropy
@@ -309,31 +323,33 @@ clf_en = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0
 clf_en.fit(X_train, y_train)
 ```
 
-## Predict the Test set results with criterion gini index
+## Predict the Test set results with criterion entropy index
 ```
-y_pred_gini = clf_gini.predict(X_test)
+y_pred_gini = clf_en.predict(X_test)
 ```
 
 ## Check accuracy score
 ```
-print('Model accuracy score with criterion gini index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_gini)))
+print('Model accuracy score with criterion entropy index: {0:0.4f}'. format(accuracy_score(y_test, y_pred_en)))
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_acc_en.JPG)
 
 ## Compare the train-set and test-set accuracy
 ```
-y_pred_train_gini = clf_gini.predict(X_train)
-y_pred_train_gini
+y_pred_train_en = clf_en.predict(X_train)
+y_pred_train_en
 ```
 
 ```
-print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
+print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_en)))
 ```
 
 ## Print the scores on training and test set
 ```
-print('Training set score: {:.4f}'.format(clf_gini.score(X_train, y_train)))
-print('Test set score: {:.4f}'.format(clf_gini.score(X_test, y_test)))
+print('Training set score: {:.4f}'.format(clf_en.score(X_train, y_train)))
+print('Test set score: {:.4f}'.format(clf_en.score(X_test, y_test)))
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/train_test_en.JPG)
 
 ## Change series to array
 ```
@@ -343,13 +359,15 @@ y_train = y_train.values
 ## Visualize decision-trees
 ```
 plt.figure(figsize=(12,8))
-tree.plot_tree(clf_gini.fit(X_train, y_train)) 
+tree.plot_tree(clf_en.fit(X_train, y_train)) 
 ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_dec_tree.png)
 
 ```
 plt.figure(figsize=(12,8))
-tree.plot_tree(clf_gini,
+tree.plot_tree(clf_en,
                feature_names = X_train.columns, 
                class_names=y_train,
                filled = True,rounded=True);
 			   ```
+![alt text](https://github.com/nith-ch/un/blob/master/pic/nat_dec_tree2.png)
